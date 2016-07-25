@@ -21,6 +21,9 @@
       没有为他设置appender则他不打印内容-->
     <!--<logger name="com.youthlin.TopFresh" level="TRACE"/>-->
 
+    <!--关闭第三方包 org.* 的日志输出-->
+    <logger name="org" level="WARN"/>
+
     <root level="DEBUG">
         <!--TODO 发布时不要往控制台输出,注释下面一句-->
         <appender-ref ref="STDOUT"/>

@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by chenml on 2016/7/24.
@@ -21,12 +22,22 @@ import java.util.List;
 public class WeatherRecordTask {
     private static final Logger log = LoggerFactory.getLogger(WeatherRecordTask.class);
 
+    private static final String HOST = "http://m.weathercn.com/";
     private static final String URL = "http://m.weathercn.com/index.do?id=";
+    private static Map<String, String> cookies = null;
 
     public List<WeatherRecord> getWeatherRecordFromUrl(String id) throws IOException {
         List<WeatherRecord> records = new ArrayList<>(7);
+        if (cookies == null) {
+            cookies = Jsoup.connect(HOST).execute().cookies();
+        }
         //m.weathercn.com/index.do?id=101010100&partner=
-        Document doc = Jsoup.connect(URL + id).get();
+        Document doc = Jsoup.connect(URL + id)
+                .cookies(cookies)
+                .userAgent("Mozilla/5.0 (Windows NT 6.1; Win64; x64) " +
+                        "AppleWebKit/537.36 (KHTML, like Gecko) " +
+                        "Chrome/51.0.2704.106 Safari/537.36")
+                .get();
         Elements trs = doc.select("table.sevendays tr");
         Date today = new Date();
         String weather = null;
@@ -89,7 +100,6 @@ public class WeatherRecordTask {
         }
         return records;
     }
-
 
 
     public static void main(String[] args) throws IOException {

@@ -93,8 +93,7 @@ public class WeatherRecord {
     }
 
     public String getTime() {
-        DateTime time = new DateTime(getDay());
-        return time.toString("MM-dd") + "<wbr>" + time.toString("(EE)");
+        return  new DateTime(getDay()).toString("MM-dd (EE)");
     }
 
     public String getDayIconNum() {

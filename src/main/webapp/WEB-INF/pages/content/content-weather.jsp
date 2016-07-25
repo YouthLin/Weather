@@ -10,7 +10,6 @@
 <!--weather content begin-->
 <%String index = pageContext.getServletContext().getContextPath();%>
 <div class="weather">
-
     <h3><a href="<%=index%>/weather.html?id=${city.cityId}">${city.cityNameCN} - 最新七天天气预报</a></h3>
     <table class="table table-striped table-hover">
         <thead>
@@ -26,17 +25,17 @@
         <c:forEach items="${records}" var="record">
             <tr>
                 <td class="time">${record.time}</td>
-                <td class="day"><img src="<%=index%>/static/images/small/day/Day${record.dayIconNum}.png" alt=""></td>
-                <td class="night"><img src="<%=index%>/static/images/small/night/Night${record.nightIconNum}.png"
-                                       alt=""></td>
+                <td class="day">
+                    <img src="<%=index%>/static/images/small/day/Day${record.dayIconNum}.png" alt="天气图标">
+                </td>
+                <td class="night">
+                    <img src="<%=index%>/static/images/small/night/Night${record.nightIconNum}.png" alt="天气图标">
+                </td>
                 <td class="temp">${record.temperature}</td>
                 <td class="desc">${record.description}</td>
             </tr>
         </c:forEach>
         </tbody>
     </table>
-
 </div>
-
-
 <!--weather content end-->
