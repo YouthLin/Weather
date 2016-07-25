@@ -14,5 +14,6 @@
     </h3>
     <p>数据来源：中国天气通（<a href="http://www.weather.com.cn/">http://www.weather.com.cn/</a>）</p>
     <p>技术支持：<a href="http://youthlin.com/">Youth．霖</a></p>
+    <p>代码开源：<a href="https://github.com/YouthLin/Weather">https://github.com/YouthLin/Weather</a></p>
 </div>
 <!--about content end-->

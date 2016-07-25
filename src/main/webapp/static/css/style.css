@@ -113,6 +113,10 @@ ul#search_result {
 /*endregion*/
 
 /*region 天气预报表格-----------------------------------------------*/
+.weather h3 {
+    text-align: center;
+}
+
 tr .time {
     width: 34%;
 }
