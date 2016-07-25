@@ -26,6 +26,7 @@
 - 2016.07.25 周一 1.完成展示天气数据页面; 使用 `flush` 方法解决上述问题;
 - 2016.07.25 周一 2.添加“热门城市”功能; 上传至 GitHub
 - 2016.07.25 周一 3.修正获取天气的逻辑; 关闭第三方包的日志输出; 微调页面
+- 2016.07.25 周一 4.到处数据; 新建截图
 
 注：
 1. 天气网页面错误：http://m.weathercn.com/citychange.jsp?partner= 该页面的海南的超链接指向湖南  
@@ -68,3 +69,9 @@
                           ├─jsoup
                           └─sql
 </pre>
+
+## 截图
+1. 首页 - Home <br> ![首页](screenshots/001首页.png)
+2. 搜索提示 - Search Hint <br> ![搜索提示](screenshots/002搜索提示.png)
+3. 预报页面 - Weather Page <br> ![天气预报页面](screenshots/003天气预报页面.png)
+4. 关于页面 - About Page <br> ![关于页面](screenshots/004关于页面.png)
