@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+        </layout>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <!--只填写文件名则表示相对路径，这里因为是发布在Tomcat中，文件在%TOMCAT_HOME%/bin/MyLog.log-->
+        <file>MyLog.log</file>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
+        </layout>
+    </appender>
+
+    <!--logger用于单独对一个包或类定义一个记录器，继承自root，
+      可单独设置级别level属性
+      addtivity属性表示这里打印了是否传递给上级root默认true，
+      没有为他设置appender则他不打印内容-->
+    <!--<logger name="com.youthlin.TopFresh" level="TRACE"/>-->
+
+    <root level="DEBUG">
+        <!--TODO 发布时不要往控制台输出,注释下面一句-->
+        <appender-ref ref="STDOUT"/>
+
+    </root>
+</configuration>
