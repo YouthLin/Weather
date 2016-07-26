@@ -8,7 +8,6 @@ import com.youthlin.weather.task.WeatherRecordTask;
 import org.joda.time.DateTime;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -57,9 +56,7 @@ public class WeatherRecordDaoImpl extends BaseDaoImpl<WeatherRecord> implements 
     public List<WeatherRecord> gotSevenDaysWeatherRecords(String cityId) {
         DateTime today = new DateTime();
         City city = cityDao.get(City.class, cityId);
-        if (cityDao == null) {
-            return new ArrayList<>();
-        }
+
         city.setSearchCount(city.getSearchCount() + 1);
         cityDao.update(city);
         flush();
