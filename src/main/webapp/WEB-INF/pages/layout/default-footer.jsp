@@ -9,6 +9,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page trimDirectiveWhitespaces="true" %>
 <p>灵天气 天有不测风云，不灵别怪我哦</p>
-<p>&copy;&nbsp;<%=new SimpleDateFormat("YYYY").format(new Date())%>&nbsp;<a
-        href="${pageContext.request.servletContext.contextPath}/index.html">灵天气</a>&nbsp;|&nbsp;Powered By <a
-        href="http://youthlin.com/">Youth．霖</a></p>
+<p>
+    &copy; <%=new SimpleDateFormat("YYYY").format(new Date())%>
+    <a href="${pageContext.request.servletContext.contextPath}/index.html">灵天气</a> |
+    Powered By <a href="http://youthlin.com/">Youth．霖</a>
+</p>

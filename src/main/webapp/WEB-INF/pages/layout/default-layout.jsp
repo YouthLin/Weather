@@ -1,6 +1,5 @@
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <%@ taglib prefix="tilesx" uri="http://tiles.apache.org/tags-tiles-extras" %>
-<%--<%@ taglib prefix="tiles-e" uri="http://tiles.apache.org/tags-tiles-extras" %>--%>
 <%--
   Created by IntelliJ IDEA.
   User: chenml
@@ -14,17 +13,12 @@
 <html lang="zh-CN">
 <head>
     <tiles:insertAttribute name="head"/>
-    <title><tiles:getAsString name="title" ignore="true"/></title>
+    <title><tiles:getAsString name="title" ignore="true">天气</tiles:getAsString></title>
 </head>
 <body>
 <div class="wrap" id="wrap">
-    <tilesx:useAttribute name="current-menu" id="menu"/>
-    <tiles:insertAttribute name="header">
-        <tiles:putAttribute name="current-menu" value="${menu}"/>
-    </tiles:insertAttribute>
-    <div class="container">
-        <tiles:insertAttribute name="content"/>
-    </div>
+    <tiles:insertAttribute name="header"/>
+    <div class="container"><tiles:insertAttribute name="content"/></div>
     <div class="clear" id="end"></div>
 </div><!--.wrap-->
 <footer id="copyright">

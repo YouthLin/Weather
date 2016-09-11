@@ -3,6 +3,7 @@ package com.youthlin.weather.controller;
 import com.youthlin.weather.po.City;
 import com.youthlin.weather.service.CityService;
 import com.youthlin.weather.service.WeatherRecordService;
+import com.youthlin.weather.task.CityTask;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +22,23 @@ import java.util.List;
  */
 @Controller
 public class MainController {
-    @Autowired
     private CityService cityService;
-    @Autowired
     private WeatherRecordService weatherRecordService;
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
+
+    @Autowired
+    public MainController(CityService cityService, WeatherRecordService weatherRecordService) {
+        this.cityService = cityService;
+        this.weatherRecordService = weatherRecordService;
+        init();
+    }
+
+    private void init() {
+        if (!cityService.checkDB()) {
+            log.debug("数据库无数据，初始化数据中！");
+            CityTask.main(new String[]{});
+        }
+    }
 
     /**
      * 输入提示

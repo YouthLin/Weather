@@ -15,7 +15,7 @@ import java.util.List;
  * 实现类
  */
 public class BaseDaoImpl<T> implements BaseDao<T> {
-    protected static final Logger log = LoggerFactory.getLogger(BaseDao.class);
+    protected final Logger log = LoggerFactory.getLogger(this.getClass());
     private SessionFactory sessionFactory;
 
     private SessionFactory getSessionFactory() {

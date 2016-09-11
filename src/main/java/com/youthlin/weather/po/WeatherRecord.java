@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * Created by chenml on 2016/7/24.
@@ -93,7 +94,7 @@ public class WeatherRecord {
     }
 
     public String getTime() {
-        return  new DateTime(getDay()).toString("MM-dd (EE)");
+        return  new DateTime(getDay()).toString("MM-dd (EE)", Locale.SIMPLIFIED_CHINESE);
     }
 
     public String getDayIconNum() {

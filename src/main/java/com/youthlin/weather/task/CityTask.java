@@ -13,9 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by chenml on 2016/7/22.
@@ -26,6 +24,7 @@ public class CityTask {
     private static final Logger LOG = LoggerFactory.getLogger(CityTask.class);
     private static final String ALL_PROVINCES_URL = "http://m.weathercn.com/citychange.jsp?partner=m";
     private static final String HOST = "http://m.weathercn.com/";
+    private static final Logger log = LoggerFactory.getLogger(CityTask.class);
 
     /**
      * 获取一个市的所有城市
@@ -122,9 +121,9 @@ public class CityTask {
     public List<City> getAllCitesFromFile() {
         List<City> cities = new ArrayList<>(2645);
         InputStream inputStream = getClass().getResourceAsStream("/cities.txt");
-        Scanner in = new Scanner(inputStream);
+        //设置编码！当直接运行本文件的main方法时，是正常的UTF-8，当通过web访问Controller调用时就成了GBK，因此在这里设置。
+        Scanner in = new Scanner(inputStream, "UTF-8");
         while (in.hasNext()) {
-//            System.out.println(in.nextLine());
             City city = parseCity(in.nextLine());
             cities.add(city);
         }
@@ -153,45 +152,16 @@ public class CityTask {
         Session session = sf.openSession();
         Transaction tx = session.beginTransaction();
 
+        log.trace("读取资源文件");
         List<City> cityList = new CityTask().getAllCitesFromFile();
-//        Set<String> ids = new HashSet<>(2700);
+        log.debug("第一条数据为{}", cityList.get(0));
         for (City city : cityList) {
             session.save(city);
-//            if (ids.contains(city.getCityId())) {
-//                log.warn("重复ID{}", city);
-//            }
-//            ids.add(city.getCityId());
         }
+        log.trace("保存数据成功");
 
         tx.commit();
         session.close();
         sf.close();
-
-
-//        LOG.trace("trace log");
-//
-////        new CityTask().getAllCitesFromFile();
-//        String hainan = "tocitylist.do?pid=10131&partner=";
-//        try {
-//
-////            String xinjiang = "tocitylist.do?pid=10113&partner=";
-////            String hk = "tocitylist.do?pid=10132&partner=";
-////            String maucao = "tocitylist.do?pid=10133&partner=";
-////            String tw = "tocitylist.do?pid=10134&partner=";
-//            CityTask cityTask = new CityTask();
-////            cityTask.getAllCites();
-//            List<City> cities = cityTask.getCitiesInCity(hainan, "海南");
-////            List<City> cities = cityTask.getCitiesInCity(xinjiang, "新疆");
-////            cities.addAll(cityTask.getCitiesInCity(hk, "香港"));
-////            cities.addAll(cityTask.getCitiesInCity(maucao, "澳门"));
-////            cities.addAll(cityTask.getCitiesInCity(tw, "台湾"));
-//            FileWriter out = new FileWriter(new File("D:/cities-hainan.txt"));
-//            for (City city : cities) {
-//                System.out.println(city);
-//                out.write(city + "\n");
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
     }
 }

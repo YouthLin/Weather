@@ -1,16 +1,16 @@
-<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
-<%@ taglib prefix="tilesx" uri="http://tiles.apache.org/tags-tiles-extras" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
-  User: chenml
-  Date: 2016/7/21
-  Time: 13:15
+  User: lin
+  Date: 2016-09-11-011
+  Time: 20:43 下午
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page trimDirectiveWhitespaces="true" %>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="tilesx" uri="http://tiles.apache.org/tags-tiles-extras" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
     String index = pageContext.getRequest().getServletContext().getContextPath();
 %>
@@ -29,14 +29,6 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-            </div>
-            <form:form commandName="city" action="search.html" method="get" cssClass="navbar-form navbar-right">
-                <input name="cityName" class="form-control" autofocus="autofocus" id="cityName"
-                       placeholder="切换城市：输入城市名称(中文/拼音)..."/>
-            </form:form>
-            <!-- 搜索提示框 -->
-            <div class="suggest" id="search_suggest">
-                <ul id="search_result" class="search-result-header"></ul>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">

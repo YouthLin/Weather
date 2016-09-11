@@ -18,7 +18,6 @@
     </div>
     <div class="index-item search">
         <form:form commandName="city" action="search.html" method="get">
-            <%--<form:input path="cityId" cssClass=""/>--%>
             <form:input path="cityName" placeholder="输入城市名称(中文/拼音)..."
                         cssClass="form-control" autofocus="autofocus"/>
         </form:form>

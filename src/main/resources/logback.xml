@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+    <contextName>Weather web app</contextName>
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <layout class="ch.qos.logback.classic.PatternLayout">
@@ -9,7 +10,7 @@
 
     <appender name="FILE" class="ch.qos.logback.core.FileAppender">
         <!--只填写文件名则表示相对路径，这里因为是发布在Tomcat中，文件在%TOMCAT_HOME%/bin/MyLog.log-->
-        <file>MyLog.log</file>
+        <file>Weather.log</file>
         <layout class="ch.qos.logback.classic.PatternLayout">
             <Pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Pattern>
         </layout>
@@ -25,8 +26,7 @@
     <logger name="org" level="WARN"/>
 
     <root level="DEBUG">
-        <!--TODO 发布时不要往控制台输出,注释下面一句-->
         <appender-ref ref="STDOUT"/>
-
+        <appender-ref ref="FILE"/>
     </root>
 </configuration>

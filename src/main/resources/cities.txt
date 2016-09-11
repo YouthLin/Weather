@@ -1,4 +1,4 @@
-City{cityId='101010100', cityName='北京beijing', stationName='北京beijing', provinceName='北京'}
+﻿City{cityId='101010100', cityName='北京beijing', stationName='北京beijing', provinceName='北京'}
 City{cityId='101010300', cityName='朝阳chaoyang', stationName='北京beijing', provinceName='北京'}
 City{cityId='101010700', cityName='昌平changping', stationName='北京beijing', provinceName='北京'}
 City{cityId='101011100', cityName='大兴daxing', stationName='北京beijing', provinceName='北京'}

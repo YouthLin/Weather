@@ -82,6 +82,13 @@ ul#search_result {
     background: #dddddd;
 }
 
+ul.search-result-header {
+    width: 210px;
+    position: absolute;
+    top: 42px;
+    right: 0;
+}
+
 /*endregion*/
 
 /*region Hot Cities----------------------------------------------*/

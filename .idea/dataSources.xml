@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1418541518">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
     <data-source source="LOCAL" name="MySQL - weather@localhost" uuid="10c5f808-cf71-4230-b0c5-6420b84dda14">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
@@ -43,7 +43,6 @@
       <imported>true</imported>
       <configured-by-url>true</configured-by-url>
       <remarks>$PROJECT_DIR$/src/main/webapp/WEB-INF/applicationContext.xml</remarks>
-      <jdbc-driver>root</jdbc-driver>
       <jdbc-url>com.mysql.jdbc.Driver</jdbc-url>
     </data-source>
   </component>
