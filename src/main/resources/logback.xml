@@ -26,7 +26,7 @@
     <logger name="org" level="WARN"/>
 
     <root level="DEBUG">
-        <appender-ref ref="STDOUT"/>
+        <!--<appender-ref ref="STDOUT"/>-->
         <appender-ref ref="FILE"/>
     </root>
 </configuration>
