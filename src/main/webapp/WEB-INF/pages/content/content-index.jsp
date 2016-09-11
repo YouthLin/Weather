@@ -20,6 +20,7 @@
         <form:form commandName="city" action="search.html" method="get">
             <form:input path="cityName" placeholder="输入城市名称(中文/拼音)..."
                         cssClass="form-control" autofocus="autofocus"/>
+            <input type="hidden" id="city-id"/>
         </form:form>
         <!-- 搜索提示框 -->
         <div class="suggest" id="search_suggest">

@@ -31,8 +31,9 @@
                 </button>
             </div>
             <form:form commandName="city" action="search.html" method="get" cssClass="navbar-form navbar-right">
-                <input name="cityName" class="form-control" autofocus="autofocus" id="cityName"
-                       placeholder="切换城市：输入城市名称(中文/拼音)..."/>
+                <input name="cityName" class="form-control" id="cityName"
+                       placeholder="输入城市名称(中文/拼音)..."/>
+                <input type="hidden" id="city-id" value=""/>
             </form:form>
             <!-- 搜索提示框 -->
             <div class="suggest" id="search_suggest">

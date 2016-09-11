@@ -67,7 +67,12 @@ public class MainController {
     @RequestMapping(value = {"/weather", "/weather.html"}, method = RequestMethod.GET)
     public String weather(@RequestParam(value = "id", required = false) String id, Model model) {
         if (id == null) id = "101010100";
-        model.addAttribute("city", cityService.getCity(id));
+        City city = cityService.getCity(id);
+        if (city == null) {
+            id = "101010100";
+            city = cityService.getCity(id);
+        }
+        model.addAttribute("city", city);
         model.addAttribute("records", weatherRecordService.gotWeatherRecords(id));
         return "app.weather";
     }

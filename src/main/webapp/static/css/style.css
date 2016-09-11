@@ -82,6 +82,10 @@ ul#search_result {
     background: #dddddd;
 }
 
+#search_result li.hover a{
+    background: #dddddd;
+}
+
 ul.search-result-header {
     width: 210px;
     position: absolute;

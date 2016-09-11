@@ -10,7 +10,9 @@
 <!--weather content begin-->
 <%String index = pageContext.getServletContext().getContextPath();%>
 <div class="weather">
-    <h3><a href="<%=index%>/weather.html?id=${city.cityId}">${city.cityNameCN} - 最新七天天气预报</a></h3>
+    <h3><a href="<%=index%>/weather.html?id=${city.cityId}">
+        <span title="${city.cityName}-${city.stationName}-${city.provinceName}">${city.cityNameCN}</span> - 最新七天天气预报</a>
+    </h3>
     <table class="table table-striped table-hover">
         <thead>
         <tr>
