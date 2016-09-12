@@ -20,6 +20,7 @@ public class City {
     @OneToMany(mappedBy = "city", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<WeatherRecord> weatherRecords = new ArrayList<>();
 
+    //region //getter aand setter
     public String getCityId() {
         return cityId;
     }
@@ -94,27 +95,6 @@ public class City {
     public String getCityNameCN() {
         return getCityName().replaceAll("[a-zA-Z]", "");
     }
+    //endregion
 
-//    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//
-//        City city = (City) o;
-//
-//        if (cityId != null ? !cityId.equals(city.cityId) : city.cityId != null) return false;
-//        if (cityName != null ? !cityName.equals(city.cityName) : city.cityName != null) return false;
-//        if (stationName != null ? !stationName.equals(city.stationName) : city.stationName != null) return false;
-//        return provinceName != null ? provinceName.equals(city.provinceName) : city.provinceName == null;
-//
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        int result = cityId != null ? cityId.hashCode() : 0;
-//        result = 31 * result + (cityName != null ? cityName.hashCode() : 0);
-//        result = 31 * result + (stationName != null ? stationName.hashCode() : 0);
-//        result = 31 * result + (provinceName != null ? provinceName.hashCode() : 0);
-//        return result;
-//    }
 }

@@ -25,6 +25,7 @@ public class WeatherRecord {
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private City city;
 
+    //region //getter and setter
     public Date getDay() {
         return day;
     }
@@ -94,7 +95,7 @@ public class WeatherRecord {
     }
 
     public String getTime() {
-        return  new DateTime(getDay()).toString("MM-dd (EE)", Locale.SIMPLIFIED_CHINESE);
+        return new DateTime(getDay()).toString("MM-dd (EE)", Locale.SIMPLIFIED_CHINESE);
     }
 
     public String getDayIconNum() {
@@ -104,5 +105,6 @@ public class WeatherRecord {
     public String getNightIconNum() {
         return String.format("%02d", getWeatherNight());
     }
+    //endregion
 
 }

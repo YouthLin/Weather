@@ -21,7 +21,6 @@ import java.util.*;
  * Jsoup 用法： http://www.open-open.com/jsoup/
  */
 public class CityTask {
-    private static final Logger LOG = LoggerFactory.getLogger(CityTask.class);
     private static final String ALL_PROVINCES_URL = "http://m.weathercn.com/citychange.jsp?partner=m";
     private static final String HOST = "http://m.weathercn.com/";
     private static final Logger log = LoggerFactory.getLogger(CityTask.class);
@@ -55,7 +54,7 @@ public class CityTask {
                     city.setProvinceName(provinceName);
                     cities.add(city);
 
-                    LOG.trace("add city: " + city.toString());
+                    log.trace("add city: " + city.toString());
                 }
 
             }
@@ -70,7 +69,7 @@ public class CityTask {
      * @return 省份里的所有城市
      */
     private List<City> getCitiesInCity(String url, String provinceName) throws IOException {
-        LOG.debug("get cities in {}", provinceName);
+        log.debug("get cities in {}", provinceName);
         List<City> cities = new ArrayList<>();
         Document doc = Jsoup.connect(HOST + url).get();
         Elements uls = doc.select("div.main-body div.city-list ul");
@@ -103,10 +102,10 @@ public class CityTask {
             //System.out.println("href=" + province.attr("href") + ",text=" + province.text());
             href = province.attr("href");
             text = province.text();
-            if (href.contains("stationlist.do")) {
+            if (href.contains("stationlist.do")) {//直辖市下的区
                 String stationName = href.substring(href.indexOf("cityen=") + 7, href.lastIndexOf("&"));
                 cities.addAll(getCitiesInStation(href, text + stationName, text));
-            } else if (href.contains("tocitylist.do")) {
+            } else if (href.contains("tocitylist.do")) {//市
                 cities.addAll(getCitiesInCity(href, text));
             }
         }
@@ -119,7 +118,7 @@ public class CityTask {
     }
 
     public List<City> getAllCitesFromFile() {
-        List<City> cities = new ArrayList<>(2645);
+        List<City> cities = new ArrayList<>(2650);
         InputStream inputStream = getClass().getResourceAsStream("/cities.txt");
         //设置编码！当直接运行本文件的main方法时，是正常的UTF-8，当通过web访问Controller调用时就成了GBK，因此在这里设置。
         Scanner in = new Scanner(inputStream, "UTF-8");
@@ -141,7 +140,7 @@ public class CityTask {
         city.setStationName(stationName);
         city.setProvinceName(provinceName);
 
-        LOG.trace("parse city {}", city);
+        log.trace("parse city {}", city);
 
         return city;
     }
